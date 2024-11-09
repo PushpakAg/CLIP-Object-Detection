@@ -4,4 +4,4 @@ We are doing object detection using input. Here we are using pretrained Faster-R
 
 ![Result](<test_image.png>)
 
-input = "sitting dog"
+input_text = "sitting dog"
