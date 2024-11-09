@@ -26,8 +26,6 @@ scores = model_output[0]['scores']
 
 filtered_boxes = [box for box, score in zip(boxes, scores) if score > threshold]
 
-text_inputs = clip.tokenize(["dog"]).to(device)
-
 filtered_images = []
 for box in filtered_boxes:
     x_min, y_min, x_max, y_max = map(int, box)
@@ -35,6 +33,7 @@ for box in filtered_boxes:
     filtered_images.append(preprocess(cropped_img).unsqueeze(0))
 
 filtered_images_tensor = torch.cat(filtered_images).to(device)
+
 x = input("enter text: ")
 text_inputs = clip.tokenize([x]).to(device)
 
