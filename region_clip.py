@@ -43,7 +43,7 @@ with torch.no_grad():
 
 similarity_scores = torch.cosine_similarity(image_features, text_features, dim=1)
 
-clip_threshold = 0.25  # Set according to your application needs
+clip_threshold = 0.2 # Set according to your application needs
 final_boxes = [box for box, score in zip(filtered_boxes, similarity_scores) if score > clip_threshold]
 
 fig, ax = plt.subplots(1, figsize=(12, 9))
